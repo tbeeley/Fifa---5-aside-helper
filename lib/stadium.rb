@@ -2,11 +2,10 @@ class Stadium
 
 	def initialize(rating)
 		@rating = rating
-		@atmosphere = atmosphere
 		fill!
 	end
 
-	attr_accessor :rating, :atmosphere
+	attr_accessor :rating
 
 	def at_capacity?
 		@full
