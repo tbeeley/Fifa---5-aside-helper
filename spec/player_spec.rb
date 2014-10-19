@@ -14,6 +14,10 @@ describe Player do
 			expect(player.rating).to eq 87
 		end
 
+		it 'should not be injured' do
+			expect(player.injured?).to eq false
+		end
+
 	end
 
 end

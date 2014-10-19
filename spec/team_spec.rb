@@ -2,8 +2,9 @@ require 'team'
 
 describe Team do
 
-	let(:team) { Team.new(manager) }
+	let(:team) { Team.new(manager, stadium) }
 	let(:manager) { double :manager }
+	let(:stadium) { double :stadium }
 
 	context 'when created' do
 
@@ -17,6 +18,10 @@ describe Team do
 
 		it 'should have a manager' do
 			expect(team.manager).to eq(manager)
+		end
+
+		it 'should have a stadium' do
+			expect(team.stadium).to eq(stadium)
 		end
 
 	end

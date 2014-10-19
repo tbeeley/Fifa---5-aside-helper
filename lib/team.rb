@@ -1,11 +1,12 @@
 class Team
 
-	def initialize(manager)
+	def initialize(manager, stadium)
 		@manager = manager
+		@stadium = stadium
 		@firsts = []
 		@subs = []
 	end
 
-	attr_accessor :firsts, :subs, :manager
+	attr_accessor :firsts, :subs, :manager, :stadium
 
 end
