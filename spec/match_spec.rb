@@ -16,5 +16,6 @@ describe Match do
 		it 'should have an away team' do
 			expect(match.awayteam).to eq(team2)
 		end
+
 	end
 end
