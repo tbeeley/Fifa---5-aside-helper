@@ -21,8 +21,6 @@ class Team
 		squad << Player.new(name, rating)
 	end
 
-	#Have one central method for upgrading, one for demoting. with addplayertofirsts and another in the middle.
-
 	def promote(player)
 		remove_from_subs(player)
 		add_to_first_team(player)
@@ -31,14 +29,6 @@ class Team
 	def demote(player)
 		remove_from_first_team(player)
 		add_to_subs(player)
-	end
-
-	def add_to(team_type, player)
-		if team_type.count == 11
-			raise 'you already have 11 players'
-		else
-			team_type << player
-		end
 	end
 
 	def add_to_first_team(player)
@@ -64,7 +54,5 @@ class Team
 	def remove_from_subs(player)
 		@subs.delete(player)
 	end
-
-
 
 end
