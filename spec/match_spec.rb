@@ -21,15 +21,11 @@ describe Match do
 
 	context 'predictions' do
 
-		# it 'should fix all bikes' do
-		# 	garage.bikes = [broken_bike]
-		# 	expect(broken_bike).to receive(:fix!)
-		# 	garage.fix_all_bikes
-		# end
-
-		xit 'should make a prediction of the result' do
-			allow(match).to receive(:make_prediction).and_return('Chelsea will beat Arsenal')
+		it 'should make a prediction of the result' do
+			expect(match).to receive(:make_prediction).and_return('Chelsea will beat Arsenal')
 			match.make_prediction
 		end
+
 	end
+
 end

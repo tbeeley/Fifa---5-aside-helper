@@ -3,7 +3,6 @@ class Team
 	def initialize(name, manager, stadium)
 		@manager = manager
 		@stadium = stadium
-		# For first_team do an array x 11 like in SUdoku (instead of capacity?)
 		@first_team = []
 		@subs = []
 		@squad = []
