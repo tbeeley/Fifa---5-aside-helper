@@ -25,6 +25,10 @@ describe Team do
 			expect(team.rating).to eq 50
 		end
 
+		it 'should have a squard' do
+			expect(team.squad).to eq []
+		end
+
 	end
 
 	context 'team management' do
@@ -41,6 +45,12 @@ describe Team do
 
 		it 'should have a subs bench' do
 			expect(team.subs).to eq []
+		end
+
+		it 'should be able to create a player' do
+			expect(team.squad.count).to eq 0
+			team.create_player('Andrea Pirlo', 88)
+			expect(team.squad.count).to eq 1
 		end
 
 		it 'should be able to add a player to the firsts' do
