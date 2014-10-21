@@ -12,7 +12,8 @@ class Match
 	end
 
 	def make_prediction
-		#Here will be a method like: update_ratings
+		hometeam.update_total_rating
+		awayteam.update_total_rating
 		if hometeam.rating > awayteam.rating
 			puts "#{hometeam.name} will beat #{awayteam.name}"
 		elsif hometeam.rating == awayteam.rating
@@ -23,4 +24,3 @@ class Match
 	end
 
 end
-
