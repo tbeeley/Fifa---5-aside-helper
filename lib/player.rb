@@ -1,12 +1,13 @@
 class Player
 
-	def initialize(name, rating)
+	def initialize(name)
 		@name = name
 		@rating = rating
+		@performances = []
 		recover!
 	end
 
-	attr_accessor :name, :rating
+	attr_accessor :name, :rating, :performances
 
 	def injured?
 		@injured
@@ -19,5 +20,7 @@ class Player
 	def crock!
 		@injured = true
 	end
+
+
 
 end

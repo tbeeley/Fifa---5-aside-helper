@@ -12,8 +12,8 @@ class Team
 
 	attr_accessor :first_team, :subs, :manager, :stadium, :rating, :name, :squad
 
-	def create_player(name, rating)
-		squad << Player.new(name, rating)
+	def create_player(name)
+		squad << Player.new(name)
 	end
 
 	def promote(player)

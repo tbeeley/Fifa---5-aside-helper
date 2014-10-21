@@ -2,7 +2,7 @@ require 'player'
 
 describe Player do
 
-	let(:player) { Player.new('Andrea Pirlo', 87) }
+	let(:player) { Player.new('Andrea Pirlo') }
 
 	context 'when created' do
 
@@ -10,8 +10,12 @@ describe Player do
 			expect(player.name).to eq 'Andrea Pirlo'
 		end
 
-		it 'should have a rating' do
-			expect(player.rating).to eq 87
+		#it 'should have a rating' do
+		#	expect(player.rating).to eq
+		#end
+
+		it 'should have a performances count' do
+			expect(player.performances).to eq []
 		end
 
 		it 'should not be injured' do

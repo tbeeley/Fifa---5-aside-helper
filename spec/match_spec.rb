@@ -6,7 +6,6 @@ describe Match do
 	let(:team1) {double :team, rating: 100}
 	let(:team2) {double :team, rating: 50}
 
-
 	context 'before kickoff' do
 
 
