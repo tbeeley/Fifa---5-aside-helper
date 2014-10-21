@@ -22,15 +22,28 @@ describe Player do
 			expect(player.injured?).to eq false
 		end
 
+	end
+
+	context 'managing players' do
+
 		it 'should be able to injure a player' do
 			expect(player.injured?).to eq false
 			player.crock!
 			expect(player.injured?).to eq true
 		end
 
-		it 'should be able to be given a perfomance score' do
+		before(:each) do
 			player.give_score(8)
-			expect(player.performances).to eq [8]
+			player.give_score(6)
+		end
+
+		it 'should be able to be given a perfomance score' do
+			expect(player.performances).to eq [8, 6]
+		end
+
+		it 'should update players ratings given perfomrances' do
+			player.update_player_rating
+			expect(player.rating).to eq 7
 		end
 
 	end

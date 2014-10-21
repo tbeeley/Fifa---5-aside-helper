@@ -25,4 +25,8 @@ class Player
 		@performances << number
 	end
 
+	def update_player_rating
+		@rating = performances.inject(:+).to_f / performances.length
+	end
+
 end

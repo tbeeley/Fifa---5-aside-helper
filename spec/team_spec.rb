@@ -5,8 +5,10 @@ describe Team do
 	let(:team) 		{ Team.new('Chelsea', manager, stadium) }
 	let(:manager) 	{ double :manager, rating: 100 }
 	let(:stadium) 	{ double :stadium, atmosphere: 60, updated_atmosphere: 80}
-	let(:player)  	{ double :player, rating: 100 }
-	let(:player2) 	{ double :player, rating: 80}
+	let(:player)  	{ double :player, rating: 100, injured?: false }
+	let(:player2) 	{ double :player, rating: 80, injured?: false}
+	let(:injured_player) { double :player, injured?: true}
+
 
 
 	context 'when initialized' do
@@ -31,11 +33,7 @@ describe Team do
 			expect(team.first_team).to eq []
 		end
 
-		it 'should have a subs bench' do
-			expect(team.subs).to eq []
-		end
-
-		it 'should have a squard' do
+		it 'should have a squad' do
 			expect(team.squad).to eq []
 		end
 
@@ -57,20 +55,25 @@ describe Team do
 			expect( lambda { 12.times {team.add_to_first_team(player) }}).to raise_error 'you already have 11 players'
 		end
 
-		it 'should be able to add a player to the subs' do
-			team.add_to_subs(player)
-			expect(team.subs.count).to eq 1
+		it 'cant field an injured player' do
+			expect{ lambda (team.add_to_first_team(injured_player))}.to raise_error 'you cannot field an injured player'
+
+		end
+
+		it 'should be able to add a player to the squad' do
+			team.add_to_squad(player)
+			expect(team.squad.count).to eq 1
 		end
 
 		it 'should be able to promote players to the first_team' do
 			team.promote(player)
 			expect(team.first_team.count).to eq 1
-			expect(team.subs.count).to eq 0
+			expect(team.squad.count).to eq 0
 		end
 
-		it 'should be able to demote players to the subs' do
+		it 'should be able to demote players to the squad' do
 			team.demote(player)
-			expect(team.subs.count).to eq 1
+			expect(team.squad.count).to eq 1
 			expect(team.first_team.count).to eq 0
 		end
 
@@ -85,12 +88,12 @@ describe Team do
 		end
 
 		it 'should know average player rating' do
-			expect(team.calculate_player_rating).to eq 90
+			expect(team.calculate_first_team_rating).to eq 90
 		end
 
 		it 'should update team rating' do
 			expect(stadium).to receive(:updated_atmosphere)
-			team.update_total_rating(stadium)
+			team.update_total_rating
 			expect(team.rating).to eq 90
 		end
 
