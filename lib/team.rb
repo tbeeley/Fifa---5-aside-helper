@@ -6,15 +6,11 @@ class Team
 		@first_team = []
 		@subs = []
 		@squad = []
-		@rating = 50
+		@rating = rating
 		@name = name
 	end
 
 	attr_accessor :first_team, :subs, :manager, :stadium, :rating, :name, :squad
-
-	def change_rating(new_rating)
-		@rating = new_rating
-	end
 
 	def create_player(name, rating)
 		squad << Player.new(name, rating)
@@ -60,7 +56,8 @@ class Team
 	end
 
 	def update_total_rating
-		@rating = (calculate_player_rating + stadium.rating) / 2
+		stadium.update_atmosphere
+		@rating = (calculate_player_rating + stadium.atmosphere + manager.rating) / 3
 	end
 
 end

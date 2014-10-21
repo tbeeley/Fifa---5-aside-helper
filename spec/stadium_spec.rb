@@ -7,7 +7,7 @@ describe Stadium do
 	context 'when created' do
 
 		it 'should have a rating' do
-			expect(stadium.rating).to eq 60
+			expect(stadium.atmosphere).to eq 60
 		end
 
 		it 'should be full' do
@@ -24,8 +24,9 @@ describe Stadium do
 		end
 
 		it 'ajusts rating based on atmosphere' do
-			stadium.update_rating
-			expect(stadium.rating).to eq 80
+			stadium.empty!
+			stadium.update_atmosphere
+			expect(stadium.atmosphere).to eq 30
 		end
 
 	end

@@ -1,10 +1,10 @@
 require './files.rb'
 
-Pirlo = Player.new('Andrea Pirlo', 90.98766)
+Pirlo = Player.new('Andrea Pirlo', 80)
 
-Xabi = Player.new('Xabi Alonso', 88.99077)
+Xabi = Player.new('Xabi Alonso', 100)
 
-Stamford_Bridge = Stadium.new(90)
+Stamford_Bridge = Stadium.new(60)
 
 Etihad = Stadium.new(30)
 

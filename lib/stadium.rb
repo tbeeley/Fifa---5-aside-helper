@@ -1,11 +1,11 @@
 class Stadium
 
-	def initialize(rating)
-		@rating = rating
+	def initialize(atmosphere)
+		@atmosphere = atmosphere
 		fill!
 	end
 
-	attr_accessor :rating
+	attr_accessor :atmosphere
 
 	def at_capacity?
 		@full
@@ -19,11 +19,11 @@ class Stadium
 		@full = false
 	end
 
-	def update_rating
+	def update_atmosphere
 		if at_capacity?
-			@rating = (rating + 100) / 2
+			@atmosphere = (atmosphere + 100) / 2
 		else
-			@rating = (rating + 50) / 2
+			@atmosphere = atmosphere / 2
 		end
 	end
 
