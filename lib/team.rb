@@ -54,9 +54,13 @@ class Team
 		@subs.delete(player)
 	end
 
-	def player_rating
+	def calculate_player_rating
 		ratings = first_team.map {|player| player.rating}
 		(ratings.inject(:+).to_f / first_team.length).round
+	end
+
+	def update_total_rating
+		@rating = (calculate_player_rating + stadium.rating) / 2
 	end
 
 end

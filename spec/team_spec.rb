@@ -4,9 +4,9 @@ describe Team do
 
 	let(:team) { Team.new('Chelsea', manager, stadium) }
 	let(:manager) { double :manager }
-	let(:stadium) { double :stadium }
-	let(:player)  { double :player, rating: 80 }
-	let(:player2) { double :player, rating: 90}
+	let(:stadium) { double :stadium, rating: 90 }
+	let(:player)  { double :player, rating: 100 }
+	let(:player2) { double :player, rating: 80}
 
 	context 'when initialized' do
 
@@ -98,10 +98,18 @@ describe Team do
 
 	context 'Ratings:' do
 
+		it 'should update team rating' do
+			team.add_to_first_team(player)
+			team.add_to_first_team(player2)
+			team.update_total_rating
+			expect(team.rating).to eq 90
+			#expect(team.update_total_rating).to eq 100
+		end
+
 		it 'should know average player rating' do
 			team.add_to_first_team(player)
 			team.add_to_first_team(player2)
-			expect(team.player_rating).to eq 85
+			expect(team.calculate_player_rating).to eq 90
 		end
 
 	end
