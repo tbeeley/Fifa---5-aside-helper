@@ -25,6 +25,12 @@ describe Team do
 			expect(team.stadium).to eq(stadium)
 		end
 
+		it 'should have a team-size' do
+			#This team-size should depend on 5-aside etc. Then have a full statment. See capacity in Airport
+			team.error
+		end
+
+
 	end
 
 	context 'team management' do

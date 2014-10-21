@@ -10,7 +10,7 @@ describe Player do
 			expect(player.name).to eq 'Andrea Pirlo'
 		end
 
-		it 'should have a performances count' do
+		it 'should have performances' do
 			expect(player.performances).to eq []
 		end
 

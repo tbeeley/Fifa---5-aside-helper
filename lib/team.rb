@@ -11,6 +11,11 @@ class Team
 
 	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad
 
+
+	def error
+		raise 'START WITH THIS TOMORROW'
+	end
+
 	def create_player(name)
 		squad << Player.new(name)
 	end
