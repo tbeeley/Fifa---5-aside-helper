@@ -2,11 +2,12 @@ require 'match'
 
 describe Match do
 
-	context 'before kickoff' do
+	let(:match) { Match.new(team1, team2)}
+	let(:team1) {double :team, rating: 100}
+	let(:team2) {double :team, rating: 50}
 
-		let(:match) { Match.new(team1, team2)}
-		let(:team1) {double :team, rating: 100}
-		let(:team2) {double :team, rating: 50}
+
+	context 'before kickoff' do
 
 
 		it 'should a home team' do
