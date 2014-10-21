@@ -4,7 +4,7 @@ describe Team do
 
 	let(:team) { Team.new('Chelsea', manager, stadium) }
 	let(:manager) { double :manager, rating: 100 }
-	let(:stadium) { double :stadium, atmosphere: 60, at_capacity?: true}
+	let(:stadium) { double :stadium, atmosphere: 60, updated_atmosphere: 80, at_capacity?: true}
 	let(:player)  { double :player, rating: 100 }
 	let(:player2) { double :player, rating: 80}
 
@@ -101,7 +101,7 @@ describe Team do
 			team.add_to_first_team(player)
 			team.add_to_first_team(player2)
 			expect(stadium).to receive(:updated_atmosphere)
-			team.update_total_rating
+			team.update_total_rating(stadium)
 			expect(team.rating).to eq 90
 		end
 

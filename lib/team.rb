@@ -55,7 +55,7 @@ class Team
 		(ratings.inject(:+).to_f / first_team.length).round
 	end
 
-	def update_total_rating
+	def update_total_rating(stadium)
 		f = stadium.updated_atmosphere
 		@rating = (calculate_player_rating + f + manager.rating) / 3
 	end
