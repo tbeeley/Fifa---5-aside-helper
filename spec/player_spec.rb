@@ -28,6 +28,11 @@ describe Player do
 			expect(player.injured?).to eq true
 		end
 
+		it 'should be able to be given a perfomance score' do
+			player.give_score(8)
+			expect(player.performances).to eq [8]
+		end
+
 	end
 
 end

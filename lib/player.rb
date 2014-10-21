@@ -21,6 +21,8 @@ class Player
 		@injured = true
 	end
 
-
+	def give_score(number)
+		@performances << number
+	end
 
 end
