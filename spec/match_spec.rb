@@ -22,7 +22,7 @@ describe Match do
 	context 'predictions' do
 
 		it 'should make a prediction of the result' do
-			expect(match).to receive(:make_prediction).and_return('Chelsea will beat Arsenal')
+			allow(match).to receive(:make_prediction).and_return("Chelsea will beat Arsenal")
 			match.make_prediction
 		end
 
