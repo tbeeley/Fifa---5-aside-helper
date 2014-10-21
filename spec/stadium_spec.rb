@@ -25,8 +25,8 @@ describe Stadium do
 
 		it 'ajusts rating based on atmosphere' do
 			stadium.empty!
-			stadium.update_atmosphere
-			expect(stadium.atmosphere).to eq 30
+			expect(stadium).not_to be_at_capacity
+			expect(stadium.updated_atmosphere).to eq 30
 		end
 
 	end

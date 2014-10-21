@@ -56,8 +56,8 @@ class Team
 	end
 
 	def update_total_rating
-		stadium.update_atmosphere
-		@rating = (calculate_player_rating + stadium.atmosphere + manager.rating) / 3
+		f = stadium.updated_atmosphere
+		@rating = (calculate_player_rating + f + manager.rating) / 3
 	end
 
 end
