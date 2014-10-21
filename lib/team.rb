@@ -47,14 +47,20 @@ class Team
 		@squad.delete(player)
 	end
 
+	def update_ratings
+		first_team.each { |player| player.update_player_rating }
+	end
+
 	def calculate_first_team_rating
+		update_ratings
+
 		#Talk to a coach about this. The > ratings = bit
 		ratings = first_team.map {|player| player.rating}
-		(ratings.inject(:+).to_f / first_team.length).round
+		(ratings.inject(:+).to_f / first_team.length)
 	end
 
 	def update_total_rating
-		@rating = (calculate_first_team_rating + stadium.updated_atmosphere + manager.rating) / 3
+		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere + manager.rating) / 3).round(2)
 	end
 
 end

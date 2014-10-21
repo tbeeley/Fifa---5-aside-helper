@@ -3,10 +3,10 @@ require 'team'
 describe Team do
 
 	let(:team) 		{ Team.new('Chelsea', manager, stadium) }
-	let(:manager) 	{ double :manager, rating: 100 }
-	let(:stadium) 	{ double :stadium, atmosphere: 60, updated_atmosphere: 80}
-	let(:player)  	{ double :player, rating: 100, injured?: false }
-	let(:player2) 	{ double :player, rating: 80, injured?: false}
+	let(:manager) 	{ double :manager, rating: 10 }
+	let(:stadium) 	{ double :stadium, atmosphere: 6, updated_atmosphere: 7}
+	let(:player)  	{ double :player, rating: 7, injured?: false, update_player_rating: 9 }
+	let(:player2) 	{ double :player, rating: 8, injured?: false, update_player_rating: 9}
 	let(:injured_player) { double :player, injured?: true}
 
 
@@ -88,13 +88,15 @@ describe Team do
 		end
 
 		it 'should know average player rating' do
-			expect(team.calculate_first_team_rating).to eq 90
+			expect(player).to receive(:update_player_rating)
+			expect(player2).to receive(:update_player_rating)
+			expect(team.calculate_first_team_rating).to eq 7.50
 		end
 
 		it 'should update team rating' do
 			expect(stadium).to receive(:updated_atmosphere)
 			team.update_total_rating
-			expect(team.rating).to eq 90
+			expect(team.rating).to eq 8.17
 		end
 
 	end
