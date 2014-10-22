@@ -56,7 +56,7 @@ describe Team do
 		end
 
 		it 'should limit the first_team to 11 players' do
-			expect( lambda { 12.times {team.add_to_first_team(player) }}).to raise_error 'you already have 11 players'
+			expect( lambda { 12.times {team.add_to_first_team(player) }}).to raise_error 'you already have a full side'
 		end
 
 		it 'cant field an injured player' do
@@ -79,6 +79,11 @@ describe Team do
 			team.demote(player)
 			expect(team.squad.count).to eq 1
 			expect(team.first_team.count).to eq 0
+		end
+
+		it 'should be able to change the game_capacity' do
+			team.change_game_capacity_to(11)
+			expect(team.game_capacity).to eq 11
 		end
 
 	end

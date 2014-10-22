@@ -27,8 +27,8 @@ class Team
 	end
 
 	def add_to_first_team(player)
-		if first_team.count == 11
-			raise 'you already have 11 players'
+		if first_team.count == game_capacity
+			raise 'you already have a full side'
 		elsif player.injured?
 			raise 'you cannot field an injured player'
 		else
@@ -64,4 +64,7 @@ class Team
 		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere + manager.rating) / 3).round(2)
 	end
 
+	def change_game_capacity_to(aside)
+		@game_capacity = aside
+	end
 end
