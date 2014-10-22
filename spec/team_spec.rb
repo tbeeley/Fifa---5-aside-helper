@@ -2,7 +2,7 @@ require 'team'
 
 describe Team do
 
-	let(:team) 		{ Team.new('Chelsea', manager, stadium) }
+	let(:team) 		{ Team.new('Chelsea', manager, stadium, 5) }
 	let(:manager) 	{ double :manager, rating: 10 }
 	let(:stadium) 	{ double :stadium, atmosphere: 6, updated_atmosphere: 7}
 	let(:player)  	{ double :player, rating: 7, injured?: false, update_player_rating: 9 }
@@ -25,11 +25,9 @@ describe Team do
 			expect(team.stadium).to eq(stadium)
 		end
 
-		it 'should have a team-size' do
-			#This team-size should depend on 5-aside etc. Then have a full statment. See capacity in Airport
-			team.error
+		it 'should have a game capacity' do
+			expect(team.game_capacity).to eq 5
 		end
-
 
 	end
 

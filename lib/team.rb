@@ -1,20 +1,16 @@
 class Team
 
-	def initialize(name, manager, stadium)
+	def initialize(name, manager, stadium, game_capacity)
 		@manager = manager
 		@stadium = stadium
 		@first_team = []
 		@squad = []
 		@rating = rating
 		@name = name
+		@game_capacity = game_capacity
 	end
 
-	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad
-
-
-	def error
-		raise 'START WITH THIS TOMORROW'
-	end
+	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad, :game_capacity
 
 	def create_player(name)
 		squad << Player.new(name)
