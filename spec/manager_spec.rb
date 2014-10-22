@@ -14,6 +14,5 @@ describe Manager do
 		it 'should have a rating' do
 			expect(manager.rating).to eq 88
 		end
-
 	end
 end
