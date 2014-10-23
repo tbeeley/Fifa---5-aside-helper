@@ -2,8 +2,7 @@ require 'team'
 
 describe Team do
 
-	let(:team) 		{ Team.new('Chelsea', manager, stadium, 5) }
-	let(:manager) 	{ double :manager, rating: 10 }
+	let(:team) 		{ Team.new('Chelsea', "Mourinho", stadium, 5) }
 	let(:stadium) 	{ double :stadium, atmosphere: 6, updated_atmosphere: 7}
 	let(:player)  	{ double :player, rating: 7, injured?: false, update_player_rating: 9 }
 	let(:player2) 	{ double :player, rating: 8, injured?: false, update_player_rating: 9}
@@ -18,7 +17,8 @@ describe Team do
 		end
 
 		it 'should have a manager' do
-			expect(team.manager).to eq(manager)
+			expect(team.manager).to eq 'Mourinho'
+
 		end
 
 		it 'should have a stadium' do
@@ -46,7 +46,7 @@ describe Team do
 	context 'creating and organising players' do
 
 		it 'should be able to create a player and put in squad' do
-			team.create_player('Andrea Pirlo')
+			team.create_player('Andrea Pirlo', "07841289921")
 			expect(team.squad.count).to eq 1
 		end
 
@@ -105,7 +105,7 @@ describe Team do
 		it 'should update team rating' do
 			expect(stadium).to receive(:updated_atmosphere)
 			team.update_total_rating
-			expect(team.rating).to eq 8.17
+			expect(team.rating).to eq 7.25
 		end
 
 	end

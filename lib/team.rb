@@ -12,8 +12,8 @@ class Team
 
 	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad, :game_capacity
 
-	def create_player(name)
-		squad << Player.new(name)
+	def create_player(name, phone_number)
+		squad << Player.new(name, phone_number)
 	end
 
 	def promote(player)
@@ -61,10 +61,54 @@ class Team
 	end
 
 	def update_total_rating
-		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere + manager.rating) / 3).round(2)
+		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere) / 2).round(2)
 	end
 
 	def change_game_capacity_to(aside)
 		@game_capacity = aside
 	end
-end
+
+
+
+
+	def run_all
+		done = false
+		until done == 'n' do
+				add_player
+				puts "Add another player? (y/n)"
+				done = gets.chomp
+			end
+			display_all_players
+		end
+
+
+		def add_player
+			player = get_input
+			@squad << Player.new(player)
+		end
+
+		def get_input
+			puts "Please enter the player's name"
+			gets.chomp
+		end
+
+		def display_all_players
+			puts "Squad for fixture on #{Time.now}"
+			squad.each do |player|
+				puts "#{player.name}"
+				first_team.each do |player|
+					puts "#{player.name}"
+				end
+			end
+		end
+
+
+		#add a feature where it texts all the players?
+
+
+
+
+
+
+
+	end

@@ -1,8 +1,8 @@
 require './files.rb'
 
-Pirlo = Player.new('Andrea Pirlo', 80)
+Pirlo = Player.new('Andrea Pirlo')
 
-Xabi = Player.new('Xabi Alonso', 100)
+Xabi = Player.new('Xabi Alonso')
 
 Stamford_Bridge = Stadium.new(60)
 
@@ -12,9 +12,9 @@ Pellegrini = Manager.new('Pellegrini', 90)
 
 Mourinho = Manager.new('Mourinho', 100)
 
-MC = Team.new('Manchester City', Pellegrini, Etihad)
+MC = Team.new('Manchester City', Pellegrini, Etihad, 5)
 
-CFC = Team.new("Chelsea Football Club", Mourinho, Stamford_Bridge)
+CFC = Team.new("Chelsea Football Club", Mourinho, Stamford_Bridge, 5)
 
 Derby = Match.new(CFC, MC)
 

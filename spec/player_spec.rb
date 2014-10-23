@@ -2,7 +2,8 @@ require 'player'
 
 describe Player do
 
-	let(:player) { Player.new('Andrea Pirlo') }
+	let(:player) { Player.new('Andrea Pirlo', "07841289921") }
+	let(:wrong_number) { Player.new("Danny Mills", "07841289922345")}
 
 	context 'when created' do
 
@@ -16,6 +17,14 @@ describe Player do
 
 		it 'should not be injured' do
 			expect(player.injured?).to eq false
+		end
+
+		it 'should have a phone_number' do
+			expect(player.phone_number).to eq "07841289921"
+		end
+
+		it 'should not accept an illegitimate contact number' do
+			expect{ lambda(wrong_number)}.to raise_error('That number is too long')
 		end
 
 	end

@@ -1,13 +1,25 @@
 class Player
 
-	def initialize(name)
+	def initialize(name, phone_number)
 		@name = name
 		@rating = rating
 		@performances = []
+		@phone_number = phone_number
+		check_number(phone_number)
 		recover!
 	end
 
-	attr_accessor :name, :rating, :performances
+	attr_accessor :name, :rating, :performances, :phone_number
+
+	def check_number(phone_number)
+		if phone_number[0].to_i != 0
+			raise 'That number is not real'
+		elsif phone_number.length > 11
+			raise 'That number is too long'
+		elsif phone_number.length < 11
+			raise 'That number is too short'
+		end
+	end
 
 	def injured?
 		@injured
