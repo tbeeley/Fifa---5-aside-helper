@@ -86,8 +86,14 @@ class Team
 				puts "Are you happy with everthing you've entered so far? (y/n)"
 				done = gets.chomp
 			end
-			teams[0].add_team_players
+			team_organisation
 		end
+
+		def team_organisation
+			teams[0].add_team_players
+			puts "Now were going to add your players and their details"
+		end
+
 
 
 		def create_team
@@ -99,17 +105,19 @@ class Team
 		end
 
 		def add_team_players
-			puts "Now were going to add your players and their details"
 			done = false
 			until done == 'n' do
 					add_player
 					puts "Add another player? (y/n)"
 					done = gets.chomp
 				end
+				display_to_user
+			end
+
+			def display_to_user
 				display_all_players
 				text_team
 			end
-
 
 			def add_player
 				player = get_input("name")
@@ -129,9 +137,6 @@ class Team
 				puts "Squad for #{game_capacity}.aside match, at #{stadium} on #{Date.today}"
 				squad.each do |player|
 					puts "#{player.name}, #{player.position}"
-					first_team.each do |player|
-						puts "#{player.name}, #{player.position}"
-					end
 				end
 				puts "Please let me know ASAP if you have to pull out"
 			end
