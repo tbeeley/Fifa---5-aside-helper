@@ -104,17 +104,15 @@ describe Team do
 		end
 
 		it 'should update team rating' do
-			expect(stadium).to receive(:updated_atmosphere)
 			team.update_total_rating
-			expect(team.rating).to eq 7.25
+			expect(team.rating).to eq 7.5
 		end
 
 		it 'should be able to account for home advantage' do
-			expect(stadium).to receive(:updated_atmosphere)
 			team.update_total_rating
-			expect(team.rating).to eq 7.25
+			expect(team.rating).to eq 7.5
 			team.add_home_advantage
-			expect(team.rating).to eq 7.75
+			expect(team.rating).to eq 8
 		end
 
 	end

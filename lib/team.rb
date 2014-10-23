@@ -67,7 +67,7 @@ class Team
 	end
 
 	def update_total_rating
-		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere) / 2).round(2)
+		@rating = calculate_first_team_rating.round(2)
 	end
 
 	def change_game_capacity_to(aside)
@@ -133,7 +133,6 @@ class Team
 				end
 				puts "Please let me know ASAP if you have to pull out"
 			end
-
 
 			def text_team
 				#add twillio feature where it texts all the players?
