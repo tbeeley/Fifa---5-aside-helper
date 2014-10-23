@@ -115,7 +115,9 @@ class Team
 				player = get_input("name")
 				position = get_input("position")
 				phone_number = get_input("phone number")
-				@squad << Player.new(player, phone_number, position)
+				starting_rate = get_input("starting_rate(0-10)")
+
+				@squad << Player.new(player, phone_number, position, starting_rate)
 			end
 
 			def get_input(type)
