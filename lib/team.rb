@@ -124,7 +124,7 @@ class Team
 			end
 
 			def display_all_players
-				puts "Squad for match, at #{stadium} on #{Date.today}"
+				puts "Squad for #{game_capacity}.aside match, at #{stadium} on #{Date.today}"
 				squad.each do |player|
 					puts "#{player.name}, #{player.position}"
 					first_team.each do |player|

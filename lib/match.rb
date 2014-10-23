@@ -7,7 +7,7 @@ class Match
 	attr_accessor :teams
 
 	def declare_fixture
-		puts "#{teams[0].name} vs #{teams[1].name}"
+		puts "#{teams[0].name} vs #{teams[1].name}, at #{teams[0].stadium} on #{Date.today}"
 	end
 
 	def make_prediction
@@ -21,11 +21,11 @@ class Match
 		else teams[1].rating > teams[0].rating
 			puts "#{teams[1].name} will beat #{teams[0].name}"
 		end
-		puts teams[0].name
-		puts teams[0].rating
+	end
 
-		puts teams[1].name
-		puts teams[1].rating
+	def show_team_ratings
+		puts "Current #{teams[0].name} rating: #{teams[0].rating}"
+		puts "Current #{teams[1].name} rating: #{teams[1].rating}"
 	end
 
 	def add_teams(home_team, away_team)
@@ -33,10 +33,10 @@ class Match
 		@teams << away_team
 	end
 
-
-	def create_match
+	def match_prediction
 		declare_fixture
 		make_prediction
+		show_team_ratings
 	end
 
 end
