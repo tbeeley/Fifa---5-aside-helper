@@ -29,6 +29,7 @@ describe Match do
 			match.farewell(team1)
 			expect(match.teams.count).to eq 0
 		end
+
 	end
 
 	context 'predictions' do

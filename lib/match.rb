@@ -21,13 +21,27 @@ class Match
 	def make_prediction
 		update_teams_rating
 		if teams[0].rating > teams[1].rating
-			puts "#{teams[0].name} will beat #{teams[1].name}"
+			hometeam_wins
 		elsif teams[0].rating == teams[1].rating
-			puts "#{teams[0].name} and #{teams[1].name} will draw the match"
-		else teams[1].rating > teams[0].rating
-			puts "#{teams[1].name} will beat #{teams[0].name}"
+			awayteam_wins
+		else
+			draw
 		end
 	end
+
+	def hometeam_wins
+		puts "#{teams[0].name} will beat #{teams[1].name}"
+	end
+
+	def awayteam_wins
+		puts "#{teams[0].name} and #{teams[1].name} will draw the match"
+	end
+
+	def draw
+		puts "#{teams[1].name} will beat #{teams[0].name}"
+	end
+
+
 
 	def update_teams_rating
 		teams[0].update_total_rating
