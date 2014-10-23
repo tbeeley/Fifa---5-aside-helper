@@ -31,7 +31,7 @@ class Manager
 			stadium = get_input("your home ground")
 			game_capacity = get_input("the number of players on the pitch (5-aside etc)")
 
-			@teams << Team.new(name, stadium, game_capacity )
+			create_new_team(name, stadium, game_capacity )
 		end
 
 		def add_player
@@ -42,6 +42,11 @@ class Manager
 
 			teams[0].squad << Player.new(player, phone_number, position, starting_rate)
 		end
+
+		def create_new_team(name, stadium, game_capacity)
+			@teams << Team.new(name, stadium, game_capacity )
+		end
+
 
 		def add_team_players
 			done = false
