@@ -17,6 +17,7 @@ class Manager
 				done = gets.chomp
 			end
 			team_organisation
+			display_to_user
 		end
 
 		def team_organisation
