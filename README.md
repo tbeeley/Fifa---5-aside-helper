@@ -1,6 +1,7 @@
 Fifa
 ====
 
+[![Code Climate](https://codeclimate.com/github/tbeeley/Fifa/badges/gpa.svg)](https://codeclimate.com/github/tbeeley/Fifa)
 ![Picture](./assets/tardelli1.png)
 
 I've really enjoyed this project, and it has improved my knowledge of TDD (especially doubles!), OOP and clean code. 
