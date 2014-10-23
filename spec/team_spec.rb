@@ -96,6 +96,7 @@ describe Team do
 			team.add_to_first_team(player2)
 		end
 
+
 		it 'should know average player rating' do
 			expect(player).to receive(:update_player_rating)
 			expect(player2).to receive(:update_player_rating)
@@ -106,6 +107,14 @@ describe Team do
 			expect(stadium).to receive(:updated_atmosphere)
 			team.update_total_rating
 			expect(team.rating).to eq 7.25
+		end
+
+		it 'should be able to account for home advantage' do
+			expect(stadium).to receive(:updated_atmosphere)
+			team.update_total_rating
+			expect(team.rating).to eq 7.25
+			team.add_home_advantage
+			expect(team.rating).to eq 7.75
 		end
 
 	end

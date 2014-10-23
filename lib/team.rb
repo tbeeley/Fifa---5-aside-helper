@@ -1,3 +1,5 @@
+require 'date'
+
 class Team
 
 	def initialize(name, manager, stadium, game_capacity)
@@ -60,6 +62,10 @@ class Team
 		(ratings.inject(:+).to_f / first_team.length)
 	end
 
+	def add_home_advantage
+		@rating = rating + 0.5
+	end
+
 	def update_total_rating
 		@rating = ((calculate_first_team_rating + stadium.updated_atmosphere) / 2).round(2)
 	end
@@ -71,8 +77,11 @@ class Team
 
 
 
+	#Running the Program
+
+
 	def add_team_players
-		puts "Now were going to add your players and their phone numbers"
+		puts "Now were going to add your players and their details"
 		done = false
 		until done == 'n' do
 				add_player
@@ -80,13 +89,15 @@ class Team
 				done = gets.chomp
 			end
 			display_all_players
+
 		end
 
 
 		def add_player
 			player = get_input("name")
+			position = get_input("position")
 			phone_number = get_input("phone number")
-			@squad << Player.new(player, phone_number)
+			@squad << Player.new(player, phone_number, position)
 		end
 
 		def get_input(type)
@@ -95,22 +106,37 @@ class Team
 		end
 
 		def display_all_players
-			puts "Squad for fixture on #{Time.now}"
+			puts "Squad for match, at #{stadium} on #{Date.today}"
 			squad.each do |player|
-				puts "#{player.name}"
+				puts "#{player.name}, #{player.position}"
 				first_team.each do |player|
-					puts "#{player.name}"
+					puts "#{player.name}, #{player.position}"
 				end
 			end
 		end
 
+		def run_program
+			done = false
+			until done == 'y' do
+					create_team
+					puts "Are you happy with everthing you've entered so far? (y/n)"
+					done = gets.chomp
+				end
+				teams[0].add_team_players
+			end
 
-		#add a feature where it texts all the players?
 
+			def create_team
+				manager = get_input("your manager's name")
+				name = get_input("your team's name")
+				stadium = get_input("your home ground")
+				game_capacity = get_input("the number of players on the pitch (5-aside etc)")
+				@teams << Team.new(name, manager, stadium, game_capacity )
+			end
 
+			def text_team
 
+				#add a feature where it texts all the players?
+			end
 
-
-
-
-	end
+		end
