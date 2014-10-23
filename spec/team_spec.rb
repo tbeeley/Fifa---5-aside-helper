@@ -86,15 +86,15 @@ describe Team do
 	context 'Ratings:' do
 
 		before(:each) do
-			team.add_to_first_team(player)
-			team.add_to_first_team(player2)
+			team.add_to_squad(player)
+			team.add_to_squad(player2)
 		end
 
 
 		it 'should know average player rating' do
 			expect(player).to receive(:update_player_rating)
 			expect(player2).to receive(:update_player_rating)
-			expect(team.calculate_first_team_rating).to eq 7.50
+			expect(team.calculate_squad_rating).to eq 7.50
 		end
 
 		it 'should update team rating' do
