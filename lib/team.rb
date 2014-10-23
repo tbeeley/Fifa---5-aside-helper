@@ -79,64 +79,64 @@ class Team
 
 	#Running the Program
 
-
-	def add_team_players
-		puts "Now were going to add your players and their details"
+	def run_program
 		done = false
-		until done == 'n' do
-				add_player
-				puts "Add another player? (y/n)"
+		until done == 'y' do
+				create_team
+				puts "Are you happy with everthing you've entered so far? (y/n)"
 				done = gets.chomp
 			end
-			display_all_players
-
+			teams[0].add_team_players
 		end
 
 
-		def add_player
-			player = get_input("name")
-			position = get_input("position")
-			phone_number = get_input("phone number")
-			@squad << Player.new(player, phone_number, position)
+		def create_team
+			manager = get_input("your manager's name")
+			name = get_input("your team's name")
+			stadium = get_input("your home ground")
+			game_capacity = get_input("the number of players on the pitch (5-aside etc)")
+			@teams << Team.new(name, manager, stadium, game_capacity )
 		end
 
-		def get_input(type)
-			puts "Please enter the player's #{type}"
-			gets.chomp
-		end
-
-		def display_all_players
-			puts "Squad for match, at #{stadium} on #{Date.today}"
-			squad.each do |player|
-				puts "#{player.name}, #{player.position}"
-				first_team.each do |player|
-					puts "#{player.name}, #{player.position}"
-				end
-			end
-		end
-
-		def run_program
+		def add_team_players
+			puts "Now were going to add your players and their details"
 			done = false
-			until done == 'y' do
-					create_team
-					puts "Are you happy with everthing you've entered so far? (y/n)"
+			until done == 'n' do
+					add_player
+					puts "Add another player? (y/n)"
 					done = gets.chomp
 				end
-				teams[0].add_team_players
+				display_all_players
+				text_team
 			end
 
 
-			def create_team
-				manager = get_input("your manager's name")
-				name = get_input("your team's name")
-				stadium = get_input("your home ground")
-				game_capacity = get_input("the number of players on the pitch (5-aside etc)")
-				@teams << Team.new(name, manager, stadium, game_capacity )
+			def add_player
+				player = get_input("name")
+				position = get_input("position")
+				phone_number = get_input("phone number")
+				@squad << Player.new(player, phone_number, position)
 			end
+
+			def get_input(type)
+				puts "Please enter the player's #{type}"
+				gets.chomp
+			end
+
+			def display_all_players
+				puts "Squad for match, at #{stadium} on #{Date.today}"
+				squad.each do |player|
+					puts "#{player.name}, #{player.position}"
+					first_team.each do |player|
+						puts "#{player.name}, #{player.position}"
+					end
+				end
+				puts "Please let me know ASAP if you have to pull out"
+			end
+
 
 			def text_team
-
-				#add a feature where it texts all the players?
+				#add twillio feature where it texts all the players?
 			end
 
 		end
