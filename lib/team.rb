@@ -12,8 +12,8 @@ class Team
 
 	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad, :game_capacity
 
-	def create_player(name, phone_number)
-		squad << Player.new(name, phone_number)
+	def create_player(name, phone_number, position)
+		squad << Player.new(name, phone_number, position)
 	end
 
 	def promote(player)
@@ -71,7 +71,8 @@ class Team
 
 
 
-	def run_all
+	def add_team_players
+		puts "Now were going to add your players and their phone numbers"
 		done = false
 		until done == 'n' do
 				add_player
@@ -83,12 +84,13 @@ class Team
 
 
 		def add_player
-			player = get_input
-			@squad << Player.new(player)
+			player = get_input("name")
+			phone_number = get_input("phone number")
+			@squad << Player.new(player, phone_number)
 		end
 
-		def get_input
-			puts "Please enter the player's name"
+		def get_input(type)
+			puts "Please enter the player's #{type}"
 			gets.chomp
 		end
 

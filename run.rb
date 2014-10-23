@@ -21,3 +21,10 @@ Derby = Match.new(CFC, MC)
 CFC.add_to_first_team(Xabi)
 
 CFC.add_to_first_team(Pirlo)
+
+
+require './files.rb'
+
+t = Match.new
+
+t.run_program
