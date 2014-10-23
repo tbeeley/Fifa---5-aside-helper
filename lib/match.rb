@@ -6,6 +6,14 @@ class Match
 
 	attr_accessor :teams
 
+	def welcome(team)
+		@teams << team
+	end
+
+	def farewell(team)
+		@teams.delete(team)
+	end
+
 	def declare_fixture
 		puts "#{teams[0].name} vs #{teams[1].name}, at #{teams[0].stadium} on #{Date.today}"
 	end

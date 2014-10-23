@@ -15,6 +15,22 @@ describe Match do
 
 	end
 
+	context 'welcoming teams' do
+
+		before(:each) do
+			match.welcome(team1)
+		end
+
+		it 'should be able to take in teams' do
+			expect(match.teams.count).to eq 1
+		end
+
+		it 'should be able to release teams' do
+			match.farewell(team1)
+			expect(match.teams.count).to eq 0
+		end
+	end
+
 	context 'predictions' do
 
 		before(:each) do
