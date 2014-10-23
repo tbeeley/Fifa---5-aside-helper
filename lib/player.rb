@@ -1,12 +1,13 @@
 class Player
 
-	def initialize(name, phone_number, position)
+	def initialize(name, phone_number, position, starting_rate)
 		@name = name
 		@position = position
 		@rating = rating
 		@performances = []
 		@phone_number = phone_number
 		check_number(phone_number)
+		give_score(starting_rate)
 		recover!
 	end
 

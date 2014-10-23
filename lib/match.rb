@@ -18,9 +18,14 @@ class Match
 			puts "#{teams[0].name} will beat #{teams[1].name}"
 		elsif teams[0].rating == teams[1].rating
 			puts "#{teams[0].name} and #{teams[1].name} will draw the match"
-		else
+		else teams[1].rating > teams[0].rating
 			puts "#{teams[1].name} will beat #{teams[0].name}"
 		end
+		puts teams[0].name
+		puts teams[0].rating
+
+		puts teams[1].name
+		puts teams[1].rating
 	end
 
 	def add_teams(home_team, away_team)

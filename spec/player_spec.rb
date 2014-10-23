@@ -2,8 +2,8 @@ require 'player'
 
 describe Player do
 
-	let(:player) { Player.new('Andrea Pirlo', "07841289921", "CM") }
-	let(:wrong_number) { Player.new("Danny Mills", "07841289922345", "RB")}
+	let(:player) { Player.new('Andrea Pirlo', "07841289921", "CM", 7) }
+	let(:wrong_number) { Player.new("Danny Mills", "07841289922345", "RB", 3)}
 
 	context 'when created' do
 
@@ -15,8 +15,8 @@ describe Player do
 			expect(player.position).to eq 'CM'
 		end
 
-		it 'should have performances' do
-			expect(player.performances).to eq []
+		it 'should have a starting rating' do
+			expect(player.performances).to eq [7]
 		end
 
 		it 'should not be injured' do
@@ -47,7 +47,7 @@ describe Player do
 		end
 
 		it 'should be able to be given a perfomance score' do
-			expect(player.performances).to eq [8, 6]
+			expect(player.performances).to eq [7, 8, 6]
 		end
 
 		it 'should update players ratings given perfomrances' do
