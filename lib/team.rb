@@ -2,8 +2,7 @@ require 'date'
 
 class Team
 
-	def initialize(name, manager, stadium, game_capacity)
-		@manager = manager
+	def initialize(name, stadium, game_capacity)
 		@stadium = stadium
 		@first_team = []
 		@squad = []
@@ -12,7 +11,7 @@ class Team
 		@game_capacity = game_capacity
 	end
 
-	attr_accessor :first_team, :manager, :stadium, :rating, :name, :squad, :game_capacity
+	attr_accessor :first_team, :stadium, :rating, :name, :squad, :game_capacity
 
 	def create_player(name, phone_number, position, starting_rate)
 		squad << Player.new(name, phone_number, position, starting_rate)
@@ -94,14 +93,38 @@ class Team
 			puts "Now were going to add your players and their details"
 		end
 
+		# def create_team
+		# 	questions_format("your manager's name", "your team's name", "your home ground", "the number of players on the pitch (5-aside etc)")
+		# 	@teams << Team.new(param1, param2, param3, param4 )
+		# end
 
+		# def questions_format (input1, input2, input3, input4)
+		# 	param1 = get_input(input1)
+		# 	param2 = get_input(input2)
+		# 	param3 = get_input(input3)
+		# 	param4 = get_input(input4)
+		# end
+
+		# def add_player
+		# 	questions_format("the player's name", "the player's position", "the player's phone number", "the player's starting_rate(0-10)")
+		# 	@squad << Player.new(param1, param2, param3, param4)
+		# end
 
 		def create_team
-			manager = get_input("your manager's name")
 			name = get_input("your team's name")
 			stadium = get_input("your home ground")
 			game_capacity = get_input("the number of players on the pitch (5-aside etc)")
-			@teams << Team.new(name, manager, stadium, game_capacity )
+
+			@teams << Team.new(name, stadium, game_capacity )
+		end
+
+		def add_player
+			player = get_input("the player's name")
+			position = get_input("the player's position")
+			phone_number = get_input("the player's phone number")
+			starting_rate = get_input("the player's starting_rate(0-10)")
+
+			@squad << Player.new(player, phone_number, position, starting_rate)
 		end
 
 		def add_team_players
@@ -119,17 +142,9 @@ class Team
 				text_team
 			end
 
-			def add_player
-				player = get_input("name")
-				position = get_input("position")
-				phone_number = get_input("phone number")
-				starting_rate = get_input("starting_rate(0-10)")
-
-				@squad << Player.new(player, phone_number, position, starting_rate)
-			end
 
 			def get_input(type)
-				puts "Please enter the player's #{type}"
+				puts "Please enter #{type}"
 				gets.chomp
 			end
 

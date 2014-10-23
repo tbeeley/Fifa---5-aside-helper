@@ -2,7 +2,7 @@ require 'team'
 
 describe Team do
 
-	let(:team) 		{ Team.new('Chelsea', "Mourinho", stadium, 5) }
+	let(:team) 		{ Team.new('Chelsea', stadium, 5) }
 	let(:stadium) 	{ double :stadium, atmosphere: 6, updated_atmosphere: 7}
 	let(:player)  	{ double :player, rating: 7, injured?: false, update_player_rating: 9 }
 	let(:player2) 	{ double :player, rating: 8, injured?: false, update_player_rating: 9}
@@ -14,11 +14,6 @@ describe Team do
 
 		it 'should have a name' do
 			expect(team.name).to eq 'Chelsea'
-		end
-
-		it 'should have a manager' do
-			expect(team.manager).to eq 'Mourinho'
-
 		end
 
 		it 'should have a stadium' do

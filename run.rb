@@ -22,8 +22,8 @@ Derby.add_teams(CFC, MC)
 
 Derby.match_prediction
 
-#require './files.rb'
+require './files.rb'
 
-#t = Match.new
+t = Match.new
 
-#t.run_program
+t.run_program
