@@ -11,9 +11,7 @@ class Match
 	end
 
 	def make_prediction
-		teams[0].update_total_rating
-		teams[1].update_total_rating
-		teams[0].add_home_advantage
+		update_teams_rating
 		if teams[0].rating > teams[1].rating
 			puts "#{teams[0].name} will beat #{teams[1].name}"
 		elsif teams[0].rating == teams[1].rating
@@ -21,6 +19,12 @@ class Match
 		else teams[1].rating > teams[0].rating
 			puts "#{teams[1].name} will beat #{teams[0].name}"
 		end
+	end
+
+	def update_teams_rating
+		teams[0].update_total_rating
+		teams[1].update_total_rating
+		teams[0].add_home_advantage
 	end
 
 	def show_team_ratings
