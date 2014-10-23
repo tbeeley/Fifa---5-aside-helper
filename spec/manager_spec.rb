@@ -3,6 +3,8 @@ require 'manager'
 describe Manager do
 
 	let(:manager) { Manager.new('Mourinho')}
+	let(:match)	{ double :match }
+	let(:team)	{ double :team }
 
 	context 'when created' do
 
@@ -24,13 +26,15 @@ describe Manager do
 			expect(manager.teams.count).to eq 1
 		end
 
-		# it 'should be able to pit his team against another' do
-
-		# 	manager.play(team)
-		# 	expect.
-		# 		end
+		it 'should be able to play against another team' do
+			manager.prepare(team)
+			manager.play(team)
+			expect(manager.teams.count).to eq 0
+		end
 
 	end
+
+
 	#How on earth do i test all this stuff?
 
 end

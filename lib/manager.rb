@@ -9,6 +9,14 @@ class Manager
 
 	#Running the Program
 
+	def play(team)
+		teams.delete(team)
+	end
+
+	def prepare(team)
+		teams << team
+	end
+
 	def run_program
 		done = false
 		until done == 'y' do
@@ -25,13 +33,16 @@ class Manager
 			add_team_players
 		end
 
-
 		def create_team
 			name = get_input("your team's name")
 			stadium = get_input("your home ground")
 			game_capacity = get_input("the number of players on the pitch (5-aside etc)")
 
-			create_new_team(name, stadium, game_capacity )
+			create_new_team(name, stadium, game_capacity)
+		end
+
+		def create_new_team(name, stadium, game_capacity)
+			@teams << Team.new(name, stadium, game_capacity )
 		end
 
 		def add_player
@@ -40,13 +51,8 @@ class Manager
 			phone_number = get_input("the player's phone number")
 			starting_rate = get_input("the player's starting_rate(0-10)")
 
-			teams[0].squad << Player.new(player, phone_number, position, starting_rate)
+			create_player(player, phone_number, position, starting_rate)
 		end
-
-		def create_new_team(name, stadium, game_capacity)
-			@teams << Team.new(name, stadium, game_capacity )
-		end
-
 
 		def add_team_players
 			done = false
