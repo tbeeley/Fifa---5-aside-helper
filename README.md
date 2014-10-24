@@ -1,4 +1,4 @@
-Fifa
+Fifa---5-aside-helper
 ====
 
 [![Code Climate](https://codeclimate.com/github/tbeeley/Fifa/badges/gpa.svg)](https://codeclimate.com/github/tbeeley/Fifa)
@@ -32,5 +32,10 @@ The aim was to create a system to organize a weekly kickabout I have with mates.
 
 to add more players:
 - Yourname.add_team_player
+
+##Next Steps
+
+- Make a simple web-interface
+- Add text functionality with Twilio.
 
 
