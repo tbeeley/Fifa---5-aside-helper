@@ -34,7 +34,4 @@ describe Manager do
 
 	end
 
-
-	#How on earth do i test all this stuff?
-
 end

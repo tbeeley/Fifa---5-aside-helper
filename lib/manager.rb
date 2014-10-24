@@ -7,8 +7,6 @@ class Manager
 
 	attr_accessor :name, :teams
 
-	#Running the Program
-
 	def play(team)
 		teams.delete(team)
 	end
@@ -16,6 +14,8 @@ class Manager
 	def prepare(team)
 		teams << team
 	end
+
+	#Running the Program
 
 	def run_program
 		done = false
