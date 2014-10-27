@@ -76,8 +76,9 @@ class Manager
 			end
 
 			def display_all_players
-				puts "Squad for #{teams[0].game_capacity}.aside match, at #{teams[0].stadium} on #{Date.today}"
-				teams[0].squad.each do |player|
+				puts "Squad for #{hometeam.game_capacity}.aside match, at #{away_team
+				.stadium} on #{Date.today}"
+				hometeam.squad.each do |player|
 					puts "#{player.name}, #{player.position}"
 				end
 				puts "Please let me know ASAP if you have to pull out"

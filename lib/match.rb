@@ -14,44 +14,60 @@ class Match
 		@teams.delete(team)
 	end
 
+	def home_team
+		teams[0]
+	end
+
+	def away_team
+		teams[1]
+	end
+
 	def declare_fixture
-		puts "#{teams[0].name} vs #{teams[1].name}, at #{teams[0].stadium} on #{Date.today}"
+		puts "#{home_team.name} vs #{away_team.name}, at #{home_team.stadium} on #{Date.today}"
 	end
 
 	def make_prediction
 		update_teams_rating
-		if teams[0].rating > teams[1].rating
+		if home_team_rating_higher
 			hometeam_wins
-		elsif teams[0].rating == teams[1].rating
+		elsif away_team.rating < home_team.rating
 			awayteam_wins
 		else
-			draw
+			drew
 		end
 	end
 
+	def home_team_rating_higher
+		home_team.rating > away_team.rating
+	end
+
+	def away_team_rating_higher
+		away_team.rating < home_team.rating
+	end
+
 	def hometeam_wins
-		puts "#{teams[0].name} will beat #{teams[1].name}"
+		puts "#{home_team.name} will beat #{away_team.name}"
 	end
 
 	def awayteam_wins
-		puts "#{teams[0].name} and #{teams[1].name} will draw the match"
+		puts "#{home_team.name} and #{away_team.name} will draw the match"
 	end
 
 	def draw
-		puts "#{teams[1].name} will beat #{teams[0].name}"
+		puts "#{away_team.name} will beat #{home_team.name}"
 	end
 
 
 
 	def update_teams_rating
-		teams[0].update_total_rating
-		teams[1].update_total_rating
-		teams[0].add_home_advantage
+		home_team.update_total_rating
+		away_team.update_total_rating
+		home_team.add_home_advantage
 	end
 
 	def show_team_ratings
-		puts "Current #{teams[0].name} rating: #{teams[0].rating}"
-		puts "Current #{teams[1].name} rating: #{teams[1].rating}"
+		puts "Current #{home_team.name} rating: #{home_team.rating}"
+		puts "Current #{away_team.name} rating: #{away_team.rating}"
 	end
 
 	def add_teams(home_team, away_team)

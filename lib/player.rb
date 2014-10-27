@@ -16,12 +16,17 @@ class Player
 	def check_number
 		if phone_number[0].to_i != 0
 			raise 'That number is not real'
-		elsif phone_number.length > 11
+		elsif number_length > 11
 			raise 'That number is too long'
-		elsif phone_number.length < 11
+		elsif number_length < 11
 			raise 'That number is too short'
 		end
 	end
+
+	def number_length
+		phone_number.length
+	end
+
 
 	def injured?
 		@injured
