@@ -15,7 +15,7 @@ class Manager
 		teams << team
 	end
 
-	#Running the Program
+	# Running the Program
 
 	def run_program
 		done = false
@@ -64,6 +64,7 @@ class Manager
 				display_to_user
 			end
 
+
 			def display_to_user
 				display_all_players
 				text_team
@@ -93,19 +94,19 @@ class Manager
 
 
 
-		# def create_team
-		# 	questions_format("your manager's name", "your team's name", "your home ground", "the number of players on the pitch (5-aside etc)")
-		# 	@teams << Team.new(param1, param2, param3, param4 )
-		# end
+		# 	# # def create_team
+		# 	# # 	questions_format("your manager's name", "your team's name", "your home ground", "the number of players on the pitch (5-aside etc)")
+		# 	# # 	@teams << Team.new(param1, param2, param3, param4 )
+		# 	# # end
 
-		# def questions_format (input1, input2, input3, input4)
-		# 	param1 = get_input(input1)
-		# 	param2 = get_input(input2)
-		# 	param3 = get_input(input3)
-		# 	param4 = get_input(input4)
-		# end
+		# 	# # def questions_format (input1, input2, input3, input4)
+		# 	# # 	param1 = get_input(input1)
+		# 	# # 	param2 = get_input(input2)
+		# 	# # 	param3 = get_input(input3)
+		# 	# # 	param4 = get_input(input4)
+		# 	# # end
 
-		# def add_player
-		# 	questions_format("the player's name", "the player's position", "the player's phone number", "the player's starting_rate(0-10)")
-		# 	@squad << Player.new(param1, param2, param3, param4)
-		# end
+		# 	# # def add_player
+		# 	# # 	questions_format("the player's name", "the player's position", "the player's phone number", "the player's starting_rate(0-10)")
+		# 	# # 	@squad << Player.new(param1, param2, param3, param4)
+		# 	# # end
