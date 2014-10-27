@@ -14,14 +14,23 @@ class Player
 	attr_accessor :name, :rating, :performances, :phone_number, :position
 
 	def check_number
-		if phone_number[0].to_i != 0
-			raise 'That number is not real'
-		elsif number_length > 11
-			raise 'That number is too long'
-		elsif number_length < 11
-			raise 'That number is too short'
+		unless phone_number[0].to_i == 0 || number_length > 11 || number_length < 11
+			raise 'That number is not legit'
 		end
 	end
+
+
+	# def check_number
+	# 	if phone_number[0].to_i != 0
+	# 		raise 'That number is not real'
+	# 	elsif number_length > 11
+	# 		raise 'That number is too long'
+	# 	elsif number_length < 11
+	# 		raise 'That number is too short'
+	# 	end
+	# end
+
+
 
 	def number_length
 		phone_number.length
