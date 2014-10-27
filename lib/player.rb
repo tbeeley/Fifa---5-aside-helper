@@ -6,14 +6,14 @@ class Player
 		@rating = rating
 		@performances = []
 		@phone_number = phone_number
-		check_number(phone_number)
+		check_number
 		give_score(starting_rate)
-		recover!
+		recover
 	end
 
 	attr_accessor :name, :rating, :performances, :phone_number, :position
 
-	def check_number(phone_number)
+	def check_number
 		if phone_number[0].to_i != 0
 			raise 'That number is not real'
 		elsif phone_number.length > 11
@@ -27,11 +27,11 @@ class Player
 		@injured
 	end
 
-	def recover!
+	def recover
 		@injured = false
 	end
 
-	def crock!
+	def crock
 		@injured = true
 	end
 

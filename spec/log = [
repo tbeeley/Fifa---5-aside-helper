@@ -1,0 +1,30 @@
+log = [
+  {time: 201201, x: 2},
+  {time: 201201, y: 7},
+  {time: 201201, z: 2},
+  {time: 201202, a: 3},
+  {time: 201202, b: 4},
+  {time: 201202, c: 0}
+]
+
+[
+  {time: 201201, x: 2, y: 7, z: 2},
+  {time: 201202, a: 3, b: 4, c: 0},
+]
+
+effective_log = [  
+  {time: monday, x: 2},
+  {time: monday, y: 7},
+  {time: monday, z: 2},
+  {time: tuesday, a: 3},
+  {time: tuesday, b: 4},
+  {time: tuesday, c: 0}
+]
+
+[
+  {time: monday, x: 2, y: 7, z: 2},
+  {time: tuesday, a: 3, b: 4, c: 0},
+]
+
+def convert_to_each_day(array_of_hashes)
+end

@@ -37,7 +37,7 @@ describe Player do
 
 		it 'should be able to injure a player' do
 			expect(player.injured?).to eq false
-			player.crock!
+			player.crock
 			expect(player.injured?).to eq true
 		end
 
