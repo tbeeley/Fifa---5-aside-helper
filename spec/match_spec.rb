@@ -18,7 +18,7 @@ describe Match do
 	context 'welcoming teams' do
 
 		before(:each) do
-			match.welcome(team1)
+			match.add(team1)
 		end
 
 		it 'should be able to take in teams' do
@@ -26,7 +26,7 @@ describe Match do
 		end
 
 		it 'should be able to release teams' do
-			match.farewell(team1)
+			match.drop(team1)
 			expect(match.teams.count).to eq 0
 		end
 
