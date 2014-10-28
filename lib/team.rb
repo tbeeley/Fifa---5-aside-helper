@@ -51,10 +51,7 @@ class Team
 
 	def calculate_squad_rating
 		update_ratings
-
-		#Talk to a coach about this. The > ratings = bit
-		ratings = squad.map {|player| player.rating}
-		(ratings.inject(:+).to_f / squad.length)
+		squad.map {|player| player.rating}.inject(:+).to_f / squad.length
 	end
 
 	def add_home_advantage
