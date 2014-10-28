@@ -28,11 +28,7 @@ class Team
 	end
 
 	def add_to_first_team(player)
-		if first_team.count == game_capacity
-			raise 'you already have a full side'
-		elsif player.injured?
-			raise 'you cannot field an injured player'
-		else
+		unless first_team.count == game_capacity || player.injured?
 			@first_team << player
 		end
 	end
