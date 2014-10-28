@@ -41,7 +41,7 @@ describe Team do
 	context 'creating and organising players' do
 
 		it 'should be able to create a player and put in squad' do
-			team.create_player('Andrea Pirlo', "07841289921", "CM", 7)
+			team.create_player('Andrea Pirlo', "07841289921", 7)
 			expect(team.squad.count).to eq 1
 		end
 

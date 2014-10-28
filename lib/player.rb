@@ -1,8 +1,7 @@
 class Player
 
-	def initialize(name, phone_number, position, starting_rate)
+	def initialize(name, phone_number, starting_rate)
 		@name = name
-		@position = position
 		@rating = rating
 		@performances = []
 		@phone_number = phone_number
@@ -11,7 +10,7 @@ class Player
 		recover
 	end
 
-	attr_accessor :name, :rating, :performances, :phone_number, :position
+	attr_accessor :name, :rating, :performances, :phone_number
 
 	def check_number
 		unless phone_number[0].to_i == 0 && number_length == 11
