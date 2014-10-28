@@ -51,6 +51,10 @@ class Team
 
 	def calculate_squad_rating
 		update_ratings
+		squad_average
+	end
+
+	def squad_average
 		squad.map {|player| player.rating}.inject(:+).to_f / squad.length
 	end
 
