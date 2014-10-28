@@ -28,13 +28,11 @@ class Match
 
 	def make_prediction
 		update_teams_rating
-		if home_team_rating_higher
-			hometeam_wins
-		elsif away_team.rating < home_team.rating
-			awayteam_wins
-		else
-			drew
-		end
+		declare_prediction
+	end
+
+	def declare_prediction
+		home_team_rating_higher ? hometeam_wins : awayteam_wins
 	end
 
 	def home_team_rating_higher
@@ -52,12 +50,6 @@ class Match
 	def awayteam_wins
 		puts "#{home_team.name} and #{away_team.name} will draw the match"
 	end
-
-	def draw
-		puts "#{away_team.name} will beat #{home_team.name}"
-	end
-
-
 
 	def update_teams_rating
 		home_team.update_total_rating
