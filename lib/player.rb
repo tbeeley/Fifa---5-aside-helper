@@ -14,7 +14,7 @@ class Player
 	attr_accessor :name, :rating, :performances, :phone_number, :position
 
 	def check_number
-		if phone_number[0].to_i != 0 || number_length > 11 || number_length < 11
+		unless phone_number[0].to_i == 0 && number_length == 11
 			raise 'That number is not legit'
 		end
 	end
