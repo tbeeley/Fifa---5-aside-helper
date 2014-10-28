@@ -26,7 +26,6 @@ class Match
 		puts "#{home_team.name} vs #{away_team.name}, at #{home_team.stadium} on #{Date.today}"
 	end
 
-
 	def make_prediction
 		update_teams_rating
 		declare_prediction

@@ -11,7 +11,6 @@ describe Player do
 			expect(player.name).to eq 'Andrea Pirlo'
 		end
 
-
 		it 'should have a starting rating' do
 			expect(player.performances).to eq [7]
 		end
@@ -39,8 +38,8 @@ describe Player do
 		end
 
 		before(:each) do
-			player.give_score(8)
-			player.give_score(6)
+			player.add_to_performances(8)
+			player.add_to_performances(6)
 		end
 
 		it 'should be able to be given a perfomance score' do

@@ -1,10 +1,10 @@
 require './files.rb'
 
-Pirlo = Player.new('Andrea Pirlo', "07841289921", "CB", 9)
+Pirlo = Player.new('Andrea Pirlo', "07841289921", 9)
 
-Xabi = Player.new('Xabi Alonso', "07841289921", "MD", 9)
+Xabi = Player.new('Xabi Alonso', "07841289921", 9)
 
-Hart = Player.new("Joe Hart", "07841289921", "GK", 4)
+Hart = Player.new("Joe Hart", "07841289921", 4)
 
 MC = Team.new('Manchester City', "Pellegrini", "Etihad", 5)
 
@@ -21,9 +21,3 @@ Derby = Match.new
 Derby.add_teams(CFC, MC)
 
 Derby.match_prediction
-
-require './files.rb'
-
-t = Match.new
-
-t.run_program

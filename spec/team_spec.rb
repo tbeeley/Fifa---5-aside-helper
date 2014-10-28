@@ -8,8 +8,6 @@ describe Team do
 	let(:player2) 	{ double :player, rating: 8, injured?: false, update_player_rating: 9}
 	let(:injured_player) { double :player, injured?: true}
 
-
-
 	context 'when initialized' do
 
 		it 'should have a name' do

@@ -8,7 +8,6 @@ describe Manager do
 
 	context 'when created' do
 
-
 		it 'should have a name' do
 			expect(manager.name).to eq 'Mourinho'
 		end
