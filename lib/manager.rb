@@ -47,10 +47,6 @@ end
 # 			create_new_team(name, stadium, game_capacity)
 # 		end
 
-def create_new_team(name, stadium, game_capacity)
-	@teams << Team.new(name, stadium, game_capacity )
-end
-
 # 		def add_player
 # 			player = get_input("a player's name")
 # 			position = get_input("the player's position")

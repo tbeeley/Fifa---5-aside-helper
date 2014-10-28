@@ -39,7 +39,11 @@ class Player
 	end
 
 	def update_player_rating
-		@rating = performances.inject(:+).to_f / performances.length
+		@rating = average_caculator(performances)
+	end
+
+	def average_caculator(input)
+		input.inject(:+).to_f / input.length
 	end
 
 end
