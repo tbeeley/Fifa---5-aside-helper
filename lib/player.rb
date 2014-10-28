@@ -14,7 +14,7 @@ class Player
 
 	def check_number
 		unless phone_number[0].to_i == 0 && number_length == 11
-			raise 'That number is not legit'
+			raise 'Please enter a legitimate phone number'
 		end
 	end
 

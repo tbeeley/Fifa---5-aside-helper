@@ -21,11 +21,6 @@ describe Manager do
 
 	context 'As a master tactician' do
 
-		it 'should be able to create a team' do
-			manager.create_new_team("Chelsea", 'Stamford Bridge', 7)
-			expect(manager.teams.count).to eq 1
-		end
-
 		it 'should be able to play against another team' do
 			manager.prepare(team)
 			manager.play(team)

@@ -25,7 +25,7 @@ describe Player do
 		end
 
 		it 'should not accept an illegitimate contact number' do
-			expect{ lambda(wrong_number)}.to raise_error("That number is not legit")
+			expect{ lambda(wrong_number)}.to raise_error("Please enter a legitimate phone number")
 		end
 
 	end

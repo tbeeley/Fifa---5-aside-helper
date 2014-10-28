@@ -8,7 +8,6 @@ describe Match do
 
 	context 'before kickoff' do
 
-
 		it 'should have a teams array' do
 			expect(match.teams).to eq []
 		end
