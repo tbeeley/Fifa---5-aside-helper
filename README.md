@@ -32,6 +32,6 @@ The aim was to create a system to organize a weekly kickabout I have with mates.
 
 - Add a game engine
 - Make a simple web-interface
-- Add text functionality with Twilio
+- Add texting functionality with Twilio
 
 
