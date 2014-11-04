@@ -6,12 +6,11 @@ class Team
 		@stadium = stadium
 		@first_team = []
 		@squad = []
-		@rating = rating
 		@name = name
 		@game_capacity = game_capacity
 	end
 
-	attr_accessor :first_team, :stadium, :rating, :name, :squad, :game_capacity
+	attr_accessor :first_team, :stadium, :name, :squad, :game_capacity
 
 	def promote(player)
 		remove_from_squad(player)
@@ -56,8 +55,8 @@ class Team
 		@rating = rating + 0.5
 	end
 
-	def update_total_rating
-		@rating = calculate_squad_rating.round(2)
+	def rating
+		calculate_squad_rating.round(2)
 	end
 
 	def change_game_capacity_to(aside)
