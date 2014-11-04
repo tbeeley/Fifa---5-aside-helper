@@ -2,7 +2,6 @@ class Player
 
 	def initialize(name, phone_number, starting_score)
 		@name = name
-		@rating = rating
 		@performances = []
 		@phone_number = phone_number
 		check_phone_number
@@ -10,7 +9,7 @@ class Player
 		recover
 	end
 
-	attr_accessor :name, :rating, :performances, :phone_number
+	attr_accessor :name, :performances, :phone_number
 
 	def check_phone_number
 		unless phone_number[0].to_i == 0 && number_length == 11
@@ -38,8 +37,8 @@ class Player
 		@performances << starting_score
 	end
 
-	def update_player_rating
-		@rating = performances.inject(:+).to_f / performances.length
+	def rating
+		performances.inject(:+).to_f / performances.length
 	end
 
 end

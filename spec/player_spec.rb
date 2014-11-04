@@ -46,8 +46,7 @@ describe Player do
 			expect(player.performances).to eq [7, 8, 6]
 		end
 
-		it 'should update players ratings given perfomrances' do
-			player.update_player_rating
+		it 'should be able to give a rating' do
 			expect(player.rating).to eq 7
 		end
 
