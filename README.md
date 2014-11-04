@@ -7,7 +7,7 @@ Fifa---5-aside-helper
 
 I've really enjoyed this project, and it has improved my knowledge of TDD (especially doubles!), OOP and clean code. 
 
-The aim was to create a system to organize a weekly kickabout I have with mates. The Mananger(class) has a team(class). This team lists their players and their performance ratings, which influence their rating as a player. The manager can put the team into matches(class) and try to predict who will win based on various metrics such as average player rating and whether the fixture is home or away. 
+The aim was to create a system to organize a weekly kickabout I have with mates. The Manager (class) has teams (class). This team lists their players and their performance ratings, which influence their rating as a player. The manager can put the team into matches (class) and try to predict who will win based on various metrics such as average player rating and whether the fixture is home or away. 
 
 ##Technologies
 
