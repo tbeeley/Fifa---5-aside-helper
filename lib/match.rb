@@ -1,5 +1,7 @@
 class Match
 
+	HOME_ADVANTAGE = 7
+
 	def initialize(hometeam, awayteam)
 		@hometeam = hometeam
 		@awayteam = awayteam
@@ -7,29 +9,14 @@ class Match
 
 	attr_accessor :hometeam, :awayteam
 
-	def make_prediction
-		update_teams_rating
+	def projection
+		declare_fixture
 		declare_prediction
-	end
-
-	def update_teams_rating
-		hometeam.update_total_rating
-		awayteam.update_total_rating
-		hometeam.add_home_advantage
+		show_team_ratings
 	end
 
 	def declare_prediction
-		hometeam_rating_higher ? hometeam_wins : awayteam_wins
-	end
-
-	def hometeam_rating_higher
-		hometeam.rating > awayteam.rating
-	end
-
-	def match_prediction
-		declare_fixture
-		make_prediction
-		show_team_ratings
+		(hometeam.rating + HOME_ADVANTAGE) > awayteam.rating ? hometeam_wins : awayteam_wins
 	end
 
 	def declare_fixture
@@ -41,7 +28,7 @@ class Match
 	end
 
 	def awayteam_wins
-		"#{home_team.name} and #{away_team.name} will draw the match"
+		"#{awayteam.name} will beat #{hometeam.name}"
 	end
 
 	def show_team_ratings

@@ -3,8 +3,8 @@ require 'match'
 describe Match do
 
 	let(:match) { Match.new(team1, team2) }
-	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 100}
-	let(:team2) {double :team, name: "Arsenal", rating: 50}
+	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 80}
+	let(:team2) {double :team, name: "Arsenal", rating: 86}
 
 	context 'before kickoff' do
 
@@ -22,16 +22,21 @@ describe Match do
 		end
 
 		it 'should show team ratings' do
-			expect(match.show_team_ratings).to eq "Current Chelsea rating: 100, Current Arsenal rating: 50"
+			expect(match.show_team_ratings).to eq "Current Chelsea rating: 80, Current Arsenal rating: 86"
 		end
 
 		it 'should make a prediction of the result' do
-			expect(team1).to receive(:update_total_rating)
-			expect(team1).to receive(:add_home_advantage)
-			expect(team2).to receive(:update_total_rating)
-			expect(match.make_prediction).to eq "Chelsea will beat Arsenal"
+			match2 = Match.new(team2, team1)
+			expect(team2).to receive(:rating)
+			expect(team1).to receive(:rating)
+			expect(match2.declare_prediction).to eq "Arsenal will beat Chelsea"
 		end
 
+		it 'should account for home advantage' do
+			expect(team1).to receive(:rating)
+			expect(team2).to receive(:rating)
+			expect(match.declare_prediction).to eq "Chelsea will beat Arsenal"
+		end
 
 	end
 

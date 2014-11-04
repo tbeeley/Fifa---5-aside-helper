@@ -96,13 +96,6 @@ describe Team do
 			expect(team.rating).to eq 7.5
 		end
 
-		xit 'should be able to account for home advantage' do
-			team.update_total_rating
-			expect(team.rating).to eq 7.5
-			team.add_home_advantage
-			expect(team.rating).to eq 8
-		end
-
 	end
 
 end
