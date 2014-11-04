@@ -7,13 +7,15 @@ class Match
 
 	attr_accessor :hometeam, :awayteam
 
-	def declare_fixture
-		"#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}"
-	end
-
 	def make_prediction
 		update_teams_rating
 		declare_prediction
+	end
+
+	def update_teams_rating
+		hometeam.update_total_rating
+		awayteam.update_total_rating
+		hometeam.add_home_advantage
 	end
 
 	def declare_prediction
@@ -24,6 +26,16 @@ class Match
 		hometeam.rating > awayteam.rating
 	end
 
+	def match_prediction
+		declare_fixture
+		make_prediction
+		show_team_ratings
+	end
+
+	def declare_fixture
+		"#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}"
+	end
+
 	def hometeam_wins
 		"#{hometeam.name} will beat #{awayteam.name}"
 	end
@@ -32,26 +44,8 @@ class Match
 		"#{home_team.name} and #{away_team.name} will draw the match"
 	end
 
-	def update_teams_rating
-		hometeam.update_total_rating
-		awayteam.update_total_rating
-		hometeam.add_home_advantage
-	end
-
-	def match_prediction
-		declare_fixture
-		make_prediction
-		show_team_ratings
-	end
-
 	def show_team_ratings
-		"Current #{hometeam.name} rating: #{hometeam.rating} Current #{awayteam.name} rating: #{awayteam.rating}"
+		"Current #{hometeam.name} rating: #{hometeam.rating}, Current #{awayteam.name} rating: #{awayteam.rating}"
 	end
-
-	def add_teams(hometeam, awayteam)
-		@teams << hometeam
-		@teams << awayteam
-	end
-
 
 end

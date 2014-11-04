@@ -22,7 +22,7 @@ describe Match do
 		end
 
 		it 'should show team ratings' do
-			expect(match.show_team_ratings).to eq "Current Chelsea rating: 100 Current Arsenal rating: 50"
+			expect(match.show_team_ratings).to eq "Current Chelsea rating: 100, Current Arsenal rating: 50"
 		end
 
 		it 'should make a prediction of the result' do
