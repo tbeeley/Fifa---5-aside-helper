@@ -10,9 +10,9 @@ class Match
 	attr_accessor :hometeam, :awayteam
 
 	def projection
-		declare_fixture
-		declare_prediction
-		show_team_ratings
+		declare_fixture +
+			declare_prediction +
+			show_team_ratings
 	end
 
 	def declare_prediction
@@ -20,15 +20,15 @@ class Match
 	end
 
 	def declare_fixture
-		"#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}"
+		"#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}. "
 	end
 
 	def hometeam_wins
-		"#{hometeam.name} will beat #{awayteam.name}"
+		"#{hometeam.name} will beat #{awayteam.name}. "
 	end
 
 	def awayteam_wins
-		"#{awayteam.name} will beat #{hometeam.name}"
+		"#{awayteam.name} will beat #{hometeam.name}. "
 	end
 
 	def show_team_ratings

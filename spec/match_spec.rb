@@ -18,7 +18,7 @@ describe Match do
 	context 'predictions' do
 
 		it 'should declare the fixture' do
-			expect(match.declare_fixture).to eq "Chelsea vs Arsenal, at Stamford Bridge on #{Date.today}"
+			expect(match.declare_fixture).to eq "Chelsea vs Arsenal, at Stamford Bridge on #{Date.today}. "
 		end
 
 		it 'should show team ratings' do
@@ -29,13 +29,13 @@ describe Match do
 			match2 = Match.new(team2, team1)
 			expect(team2).to receive(:rating)
 			expect(team1).to receive(:rating)
-			expect(match2.declare_prediction).to eq "Arsenal will beat Chelsea"
+			expect(match2.declare_prediction).to eq "Arsenal will beat Chelsea. "
 		end
 
 		it 'should account for home advantage' do
 			expect(team1).to receive(:rating)
 			expect(team2).to receive(:rating)
-			expect(match.declare_prediction).to eq "Chelsea will beat Arsenal"
+			expect(match.declare_prediction).to eq "Chelsea will beat Arsenal. "
 		end
 
 	end

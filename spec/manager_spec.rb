@@ -4,7 +4,8 @@ describe Manager do
 
 	let(:manager) { Manager.new('Mourinho')}
 	let(:match)	{ double :match }
-	let(:team)	{ double :team }
+	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 80}
+	let(:team2) {double :team, name: "Arsenal", rating: 86}
 
 	context 'when created' do
 
@@ -20,10 +21,16 @@ describe Manager do
 
 	context 'As a master tactician' do
 
+		before(:each) do
+			manager.add(team1)
+		end
+
+		it 'should be able to add a team' do
+			expect(manager.teams).to eq [team1]
+		end
+
 		it 'should be able to play against another team' do
-			manager.prepare(team)
-			manager.play(team)
-			expect(manager.teams.count).to eq 0
+			expect(manager.play_against(team2)).to eq "Chelsea vs Arsenal, at Stamford Bridge on 2014-11-04. Chelsea will beat Arsenal. Current Chelsea rating: 80, Current Arsenal rating: 86"
 		end
 
 	end
