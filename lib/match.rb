@@ -1,6 +1,6 @@
 class Match
 
-	HOME_ADVANTAGE = 7
+	HOME_ADVANTAGE = 0.5
 
 	def initialize(hometeam, awayteam)
 		@hometeam = hometeam

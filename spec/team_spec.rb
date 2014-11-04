@@ -81,8 +81,8 @@ describe Team do
 	context 'Ratings:' do
 
 		before(:each) do
-			team.add_to_squad(player)
-			team.add_to_squad(player2)
+			team.add_to_first_team(player)
+			team.add_to_first_team(player2)
 		end
 
 

@@ -3,8 +3,8 @@ require 'match'
 describe Match do
 
 	let(:match) { Match.new(team1, team2) }
-	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 80}
-	let(:team2) {double :team, name: "Arsenal", rating: 86}
+	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 8.0}
+	let(:team2) {double :team, name: "Arsenal", rating: 8.4}
 
 	context 'before kickoff' do
 
@@ -22,7 +22,7 @@ describe Match do
 		end
 
 		it 'should show team ratings' do
-			expect(match.show_team_ratings).to eq "Current Chelsea rating: 80, Current Arsenal rating: 86"
+			expect(match.show_team_ratings).to eq "Current Chelsea rating: 8.0, Current Arsenal rating: 8.4"
 		end
 
 		it 'should make a prediction of the result' do

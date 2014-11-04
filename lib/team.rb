@@ -39,7 +39,7 @@ class Team
 	end
 
 	def rating
-		squad.map {|player| player.rating}.inject(:+).to_f / squad.length.round(2)
+		first_team.map {|player| player.rating}.inject(:+).to_f / first_team.length.round(2)
 	end
 
 	def change_game_capacity_to(aside)
