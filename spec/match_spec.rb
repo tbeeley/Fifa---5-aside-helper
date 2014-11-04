@@ -2,44 +2,20 @@ require 'match'
 
 describe Match do
 
-	let(:match) { Match.new }
+	let(:match) { Match.new(team1, team2) }
 	let(:team1) {double :team, name: "Chelsea", stadium: 'Stamford Bridge', rating: 100}
 	let(:team2) {double :team, name: "Arsenal", rating: 50}
 
 	context 'before kickoff' do
 
-		it 'should have a teams array' do
-			expect(match.teams).to eq []
-		end
-
-	end
-
-	context 'welcoming teams' do
-
-		before(:each) do
-			match.add(team1)
-		end
-
-		it 'should be able to take in teams' do
-			expect(match.teams.count).to eq 1
-		end
-
-		it 'should be able to release teams' do
-			match.drop(team1)
-			expect(match.teams.count).to eq 0
+		it 'should have two teams' do
+			expect(match.hometeam).to eq team1
+			expect(match.awayteam).to eq team2
 		end
 
 	end
 
 	context 'predictions' do
-
-		before(:each) do
-			match.add_teams(team1, team2)
-		end
-
-		it 'shouold be able to add teams to the Match' do
-			expect(match.teams).to eq [team1, team2]
-		end
 
 		it 'should declare the fixture' do
 			expect(STDOUT).to receive(:puts).with("Chelsea vs Arsenal, at Stamford Bridge on #{Date.today}")

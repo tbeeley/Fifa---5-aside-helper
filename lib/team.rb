@@ -24,9 +24,7 @@ class Team
 	end
 
 	def add_to_first_team(player)
-		unless first_team.count == game_capacity || player.injured?
-			@first_team << player
-		end
+		@first_team << player unless first_team.count == game_capacity || player.injured?
 	end
 
 	def add_to_squad(player)
