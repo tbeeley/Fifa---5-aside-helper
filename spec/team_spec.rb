@@ -86,14 +86,10 @@ describe Team do
 		end
 
 
-		it 'should know average player rating' do
-			expect(player).to receive(:update_player_rating)
-			expect(player2).to receive(:update_player_rating)
-			expect(team.calculate_squad_rating).to eq 7.50
-		end
-
-		it 'should update team rating' do
-			expect(team.rating).to eq 7.5
+		it 'should know its rating' do
+			expect(player).to receive(:rating)
+			expect(player2).to receive(:rating)
+			expect(team.rating).to eq 7.50
 		end
 
 	end

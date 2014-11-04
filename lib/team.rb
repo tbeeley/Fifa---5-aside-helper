@@ -38,25 +38,8 @@ class Team
 		@squad.delete(player)
 	end
 
-	def update_ratings
-		squad.each { |player| player.update_player_rating }
-	end
-
-	def calculate_squad_rating
-		update_ratings
-		squad_average
-	end
-
-	def squad_average
-		squad.map {|player| player.rating}.inject(:+).to_f / squad.length
-	end
-
-	def add_home_advantage
-		@rating = rating + 0.5
-	end
-
 	def rating
-		calculate_squad_rating.round(2)
+		squad.map {|player| player.rating}.inject(:+).to_f / squad.length.round(2)
 	end
 
 	def change_game_capacity_to(aside)
