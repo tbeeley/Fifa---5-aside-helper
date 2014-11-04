@@ -8,7 +8,7 @@ class Match
 	attr_accessor :hometeam, :awayteam
 
 	def declare_fixture
-		puts "#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}"
+		"#{hometeam.name} vs #{awayteam.name}, at #{hometeam.stadium} on #{Date.today}"
 	end
 
 	def make_prediction
@@ -25,11 +25,11 @@ class Match
 	end
 
 	def hometeam_wins
-		puts "#{hometeam.name} will beat #{awayteam.name}"
+		"#{hometeam.name} will beat #{awayteam.name}"
 	end
 
 	def awayteam_wins
-		puts "#{home_team.name} and #{away_team.name} will draw the match"
+		"#{home_team.name} and #{away_team.name} will draw the match"
 	end
 
 	def update_teams_rating
@@ -45,8 +45,7 @@ class Match
 	end
 
 	def show_team_ratings
-		puts "Current #{hometeam.name} rating: #{hometeam.rating}"
-		puts "Current #{awayteam.name} rating: #{awayteam.rating}"
+		"Current #{hometeam.name} rating: #{hometeam.rating} Current #{awayteam.name} rating: #{awayteam.rating}"
 	end
 
 	def add_teams(hometeam, awayteam)
