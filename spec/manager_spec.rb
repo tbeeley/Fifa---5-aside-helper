@@ -30,7 +30,7 @@ describe Manager do
 		end
 
 		it 'should be able to play against another team' do
-			expect(manager.play_against(team2)).to eq "Chelsea vs Arsenal, at Stamford Bridge on 2014-11-04. Chelsea will beat Arsenal. Current Chelsea rating: 8.0, Current Arsenal rating: 8.4"
+			expect(manager.play_against(team2)).to eq "Chelsea vs Arsenal, at Stamford Bridge on #{Date.today}. Chelsea will beat Arsenal. Current Chelsea rating: 8.0, Current Arsenal rating: 8.4"
 		end
 
 	end

@@ -17,10 +17,3 @@ class Manager
 	end
 
 end
-
-#team = Team.new()
-#team.add_to_first_team(Player.new())
-
-# Manager = Manager.new
-# Manager.add(Team.new)
-# Manager.play_first_team(another_team)

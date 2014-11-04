@@ -32,7 +32,7 @@ class Match
 	end
 
 	def show_team_ratings
-		"Current #{hometeam.name} rating: #{hometeam.rating}, Current #{awayteam.name} rating: #{awayteam.rating}"
+		"Current #{hometeam.name} rating: #{hometeam.rating.round(2)}, Current #{awayteam.name} rating: #{awayteam.rating.round(2)}"
 	end
 
 end
