@@ -48,7 +48,7 @@ describe do
 
 	it 'should be a different projection after improved performances' do
 		give_the_tutors_a_chance
-		expect(manager.play_against(team2)). to eq "Makers Academy Students vs Makers Academy Tutors, at 25 City Road on 2014-11-04. Makers Academy Tutors will beat Makers Academy Students. Current Makers Academy Students rating: 7.0, Current Makers Academy Tutors rating: 9.71"
+		expect(manager.play_against(team2)). to eq "Makers Academy Students vs Makers Academy Tutors, at 25 City Road on #{Date.today}. Makers Academy Tutors will beat Makers Academy Students. Current Makers Academy Students rating: 7.0, Current Makers Academy Tutors rating: 9.71"
 	end
 
 end
