@@ -36,5 +36,3 @@ In this project I have prioritised clarity above conciseness. At times the code 
 - Add a game engine
 - Make a simple web-interface
 - Add texting functionality with Twilio
-
-
